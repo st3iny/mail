@@ -35,7 +35,7 @@ jobs:
 
       - name: Copy workflows
         run: |
-          rsync -v --existing --include="*/" --include="*.yml" --exclude="*" ./workflow-templates/workflow-templates/ ./.github/workflows/
+          rsync -rv --existing --include="*/" --include="*.yml" --exclude="*" ./workflow-templates/workflow-templates/ ./.github/workflows/
           rm -r workflow-templates
 
       - name: Create Pull Request
