@@ -35,7 +35,7 @@ jobs:
 
       - name: Copy workflows
         run: |
-          rsync -v --existing --exclude="*" --include="*.yml" ./workflow-templates/workflow-templates/ ./.github/workflows/
+          rsync -v --existing --include="*.yml" --exclude="*" ./workflow-templates/workflow-templates/ ./.github/workflows/
           rm -r workflow-templates
 
       - name: Create Pull Request
@@ -45,7 +45,6 @@ jobs:
           commit-message: Update all workflows from templates
           committer: GitHub <noreply@github.com>
           author: nextcloud-command <nextcloud-command@users.noreply.github.com>
-          path: target
           signoff: true
           title: "[${{ matrix.branches }}] Update all workflows from templates"
          #token: ${{ secrets.COMMAND_BOT_PAT }}
