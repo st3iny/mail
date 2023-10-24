@@ -48,7 +48,7 @@ jobs:
           path: target
           signoff: true
           title: "[${{ matrix.branches }}] Update all workflows from templates"
-          token: ${{ secrets.COMMAND_BOT_PAT }}
+         #token: ${{ secrets.COMMAND_BOT_PAT }}
           branch: automated/noid/${{ matrix.branches }}-update-workflows
           labels: |
             dependencies
