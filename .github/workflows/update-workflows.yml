@@ -30,11 +30,13 @@ jobs:
       - name: Checkout workflows repository
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
-          path: /var/tmp/workflow-templates
+          path: workflow-templates
           repository: nextcloud/.github
 
       - name: Copy workflows
-        run: rsync -v --existing --exclude="*" --include="*.yml" /var/tmp/workflow-templates/workflow-templates/ ./.github/workflows/
+        run: |
+          rsync -v --existing --exclude="*" --include="*.yml" ./workflow-templates/workflow-templates/ ./.github/workflows/
+          rm -r workflow-templates
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04 # v4
